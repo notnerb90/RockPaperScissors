@@ -7,7 +7,15 @@
 </head>
 <body>
     <script>
-        
+        let compuChoice = [
+            "rock",
+            "paper",
+            "sissors"
+        ];
+        function computerPlay(){
+            let computerSeletion = compuChoice[Math.floor(Math.random()*compuChoice.length)];
+            console.log(computerSeletion);
+        }
     </script>
 </body>
 </html>
