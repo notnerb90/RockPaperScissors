@@ -63,11 +63,17 @@
             }
             if (human > computer){
                 alert("You are the winner!!!");
+            } else if (human === computer){
+                alert("It is a tie!")
             } else {
                 alert("You lost to the computer");
             }
-            return(alert("Game Over. Score: Computer: " + computer + " You: " + human + " Refresh page to play again"));
-            
+            (alert("Game Over. Score: Computer: " + computer + " You: " + human));
+            if (alert("Select Ok to reload page and play again!!")) {
+                windows.location.reload();
+            } else {
+                window.location.reload();
+            }
         }
         
         
