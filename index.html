@@ -26,7 +26,7 @@
         }
 
         function game(){
-            let playerInitialChoice = prompt("Choose Rock, Paper, or Scissors");
+            let playerInitialChoice = prompt("5 rounds of chance!!! Choose Rock, Paper, or Scissors");
             let playerSelection = playerInitialChoice.toLowerCase();
             let computerSelection = computerPlay();
             let human = 0;
@@ -38,19 +38,19 @@
                 if (round === "You won!"){
                     console.log("won")
                     human++;
-                    alert("You won! One point for you!");
+                    alert("You won! " + playerSelection + " beats " + computerSelection);
                     playerSelection = prompt("Choose again").toLowerCase();
                     computerSelection = computerPlay();
 
                 } else if (round === "You lost!"){
                     console.log("lost")
                     computer++;
-                    alert("You lost. One point for computer");
+                    alert("You lost. " + computerSelection + " beats " + playerSelection);
                     playerSelection = prompt("Choose again").toLowerCase();
                     computerSelection = computerPlay();
                 } else if (round === "It's a tie") {
                     console.log("tie")
-                    alert("It's a tie! No points awarded...");
+                    alert("It's a tie! You both chose: " + playerSelection);
                     playerSelection = prompt("Choose again").toLowerCase();
                     computerSelection = computerPlay();
                 } else if (round === "incorrect value"){
@@ -66,7 +66,7 @@
             } else {
                 alert("You lost to the computer");
             }
-            return(alert("Game Over. Refresh page to play again"));
+            return(alert("Game Over. Score: Computer: " + computer + " You: " + human + " Refresh page to play again"));
             
         }
         
