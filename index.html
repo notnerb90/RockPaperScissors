@@ -7,15 +7,60 @@
 </head>
 <body>
     <script>
-        let compuChoice = [
+        
+        let playerInitialChoice = prompt("Choose Rock, Paper, or Scissors");
+        let playerSelection = playerInitialChoice.toLowerCase();
+        let computerSelection = computerPlay();
+
+        function computerPlay(){
+            let compuChoice = [
             "rock",
             "paper",
-            "sissors"
+            "scissors"
         ];
-        function computerPlay(){
-            let computerSeletion = compuChoice[Math.floor(Math.random()*compuChoice.length)];
-            console.log(computerSeletion);
+            let computerRandom = compuChoice[Math.floor(Math.random()*compuChoice.length)];
+            return(computerRandom)
         }
+        
+        alert(gamePlay(playerSelection, computerSelection));
+
+        function gamePlay(playerSelection,computerSelection){
+            if (playerSelection === "rock"){
+                if (computerSelection === "paper"){
+                    return(loser());
+                } else if (computerSelection === "scissors"){
+                    return(winner());
+                } else{
+                    return(tie());
+                }
+            } else if (playerSelection === "paper"){
+                if (computerSelection === "rock"){
+                    return(winner());
+                } else if (computerSelection === "scissors"){
+                    return(loser());
+                } else {
+                    return(tie());
+                }
+            } else (playerSelection === "scissors"){
+                if (computerSelection === "paper"){
+                    return(winner());
+                } else if (computerSelection === "rock"){
+                    return(loser());
+                } else {
+                    return(tie());
+                }
+            }
+        }
+        function winner(){
+            return("You won!")
+        }
+        function loser(){
+            return("You lost!")
+        }
+        function tie(){
+            return("It's a tie")
+        }
+        
     </script>
 </body>
 </html>
