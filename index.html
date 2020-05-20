@@ -41,7 +41,7 @@
                 } else {
                     return(tie());
                 }
-            } else (playerSelection === "scissors"){
+            } else if (playerSelection === "scissors"){
                 if (computerSelection === "paper"){
                     return(winner());
                 } else if (computerSelection === "rock"){
@@ -49,6 +49,8 @@
                 } else {
                     return(tie());
                 }
+            } else {
+                return("incorrect value")
             }
         }
         function winner(){
