@@ -8,10 +8,13 @@
 <body>
     <script>
         
-        let playerInitialChoice = prompt("Choose Rock, Paper, or Scissors");
+        /*let playerInitialChoice = prompt("Let's play a game! best 3 out of 5 wins! Choose Rock, Paper, or Scissors");
         let playerSelection = playerInitialChoice.toLowerCase();
-        let computerSelection = computerPlay();
+        let computerSelection = computerPlay();*/
 
+        
+        console.log(game());
+        
         function computerPlay(){
             let compuChoice = [
             "rock",
@@ -21,8 +24,53 @@
             let computerRandom = compuChoice[Math.floor(Math.random()*compuChoice.length)];
             return(computerRandom)
         }
+
+        function game(){
+            let playerInitialChoice = prompt("Choose Rock, Paper, or Scissors");
+            let playerSelection = playerInitialChoice.toLowerCase();
+            let computerSelection = computerPlay();
+            let human = 0;
+            let computer = 0;
+            let i;
+
+            for (i = 0; i < 5; i++) {
+                let round = gamePlay(playerSelection, computerSelection);
+                if (round === "You won!"){
+                    console.log("won")
+                    human++;
+                    alert("You won! One point for you!");
+                    playerSelection = prompt("Choose again").toLowerCase();
+                    computerSelection = computerPlay();
+
+                } else if (round === "You lost!"){
+                    console.log("lost")
+                    computer++;
+                    alert("You lost. One point for computer");
+                    playerSelection = prompt("Choose again").toLowerCase();
+                    computerSelection = computerPlay();
+                } else if (round === "It's a tie") {
+                    console.log("tie")
+                    alert("It's a tie! No points awarded...");
+                    playerSelection = prompt("Choose again").toLowerCase();
+                    computerSelection = computerPlay();
+                } else if (round === "incorrect value"){
+                    alert("Incorrect value, try again");
+                    playerSelection = prompt("Choose again").toLowerCase();
+                    computerSelection = computerPlay();
+                }
+            console.log(computer);
+            console.log(human);
+            }
+            if (human > computer){
+                alert("You are the winner!!!");
+            } else {
+                alert("You lost to the computer");
+            }
+            return(alert("Game Over. Refresh page to play again"));
+            
+        }
         
-        alert(gamePlay(playerSelection, computerSelection));
+        
 
         function gamePlay(playerSelection,computerSelection){
             if (playerSelection === "rock"){
@@ -53,6 +101,7 @@
                 return("incorrect value")
             }
         }
+        
         function winner(){
             return("You won!")
         }
